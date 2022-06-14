@@ -9,19 +9,19 @@ PVector gravity;
     
   }
   
-  void setZoga(boolean stran)
+  void setZoga(boolean stran, float angle, float magnituda)
   {
     if(stran)
     {
-      speed=new PVector(5,-5);
+      speed=new PVector(cos(angle)*magnituda,sin(angle)*magnituda);
       location=new PVector(0,600);
       
       gravity=new PVector(0, 0.1);
     }
     
-    else
+    if(!stran)
     {
-      speed=new PVector(-5,-5);
+      speed=new PVector(-cos(angle)*magnituda,-sin(angle)*magnituda);
       location=new PVector(800,600);
       
       gravity=new PVector(0, 0.1);
@@ -38,6 +38,7 @@ PVector gravity;
   location.add(speed);
   
   println("koordinate zoge:" +location.x +" "+location.y);
+  
   }
   
   boolean outOfBounds()
